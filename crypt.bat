@@ -7,14 +7,41 @@ title CRYPt
 
 if exist "ii4o2.txt" (
     goto passii
-) else (
-    mode 120, 30
-    pip install dotenv
-    pip install cryptography 
-    echo chck > ii4o2.txt  
-    mode 38, 18
+) else goto settii
+
+
+:settii
+cls
+mode 120, 30 
+pip show dotenv
+set stat=!errorlevel!
+if !stat! neq 0 (
+    echo Installing dotenv...
+    pip install dotenv 
+) else goto settii2 
+
+:settii2
+echo ------------------------------------------------------------------------------------------------------------------------
+pip show cryptography
+set stat2=!errorlevel!
+if !stat2! neq 0 (
+    echo Installing cryptography....
+    pip install cryptography
+) else timeout /t 1 >nul 
+
+echo ------------------------------------------------------------------------------------------------------------------------ 
+pip show dotenv 
+set oll=!errorlevel!
+pip show cryptography
+set oll1=!errorlevel!
+set oll2=!oll!!oll1!
+if !oll2! gtr 0 (
     goto passii 
+) else (
+    echo chck > ii4o2.txt 
 )
+
+
 
 :passii
 if exist ".env" (
@@ -24,6 +51,7 @@ if exist ".env" (
 
 :passs 
 cls
+mode 38, 18
 echo Please input your password...
 echo.
 set /p ala=
