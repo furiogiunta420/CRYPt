@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-Secure Text File Encryptor
-Uses Fernet (symmetric encryption) from the cryptography library.
-
-Features:
-- AES-128 encryption in CBC mode
-- HMAC authentication (detects tampering)
-- Random IV for each encryption (same text encrypts differently each time)
-- Timestamping
-- Password-based key derivation (PBKDF2)
-"""
-
 import sys
 from pathlib import Path
 from cryptography.fernet import Fernet
