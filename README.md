@@ -6,7 +6,7 @@ Encrypt txt files with a dash of "salt" and yor password.
 
 Instructions for running it alone:
 
-Make sure to download python with dootenv and encryption libraries. Place 2 python codes in one directory together with the txt file you want to encrypt and make .env file that contains:
+Make sure to download python with dootenv and cryptography libraries. Place 2 python codes in one directory together with the txt file you want to encrypt and make .env file that contains:
 
 password=YOURPASSWORD      
 
